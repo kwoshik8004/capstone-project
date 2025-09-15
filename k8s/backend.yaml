@@ -14,6 +14,8 @@ spec:
       labels:
         app: backend
     spec:
+      nodeSelector:
+        role: backend-node
       containers:
         - name: backend-ctr
           image: rootovertwo/capstone-project-backend:latest
@@ -22,6 +24,17 @@ spec:
               value: http://13.223.55.82:5050
           ports:
             - containerPort: 5050
+          env:
+            - name: MONGO_URL
+              value: mongodb://mongodb:27017/ostad-db
+            - name: MONGO_INITDB_ROOT_USERNAME
+              value: ostad
+            - name: MONGO_INITDB_ROOT_PASSWORD
+              value: ostad
+            - name: REDIS_HOST
+              value: redis
+            - name: REDIS_PORT
+              value: "6379"
           imagePullPolicy: Always
 ---
 apiVersion: v1
