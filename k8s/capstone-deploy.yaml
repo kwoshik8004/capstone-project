@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: capstone-deploy
+  labels:
+    app: capstone
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: capstone
+  template:
+    metadata:
+      labels:
+        app: capstone
+    spec:
+      containers:
+        - name: capstone-ctr
+          image: rootovertwo/capstone-project-frontend:latest
+          env:
+            - name: VITE_API_BASE_URL_ARG
+              value: http://13.223.55.82:5050
+          ports:
+            - containerPort: 5173
+          imagePullPolicy: Always
