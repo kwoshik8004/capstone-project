@@ -23,3 +23,17 @@ spec:
           ports:
             - containerPort: 5173
           imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: capstone-service
+spec:
+  selector:
+    app: capstone
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5173
+      nodePort: 30007
+  type: NodePort
