@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: capstone-config
 data:
-  VITE_API_BASE_URL: "http://34.228.228.18:5050"
+  VITE_API_BASE_URL: "http://52.91.57.139:5050"
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -26,7 +26,7 @@ spec:
           image: rootovertwo/capstone-project-frontend:latest
           env:
             - name: VITE_API_BASE_URL_ARG
-              value: http://13.223.55.82:5050
+              value: http://13.223.55.82:30017
           ports:
             - containerPort: 5173
           imagePullPolicy: Always
