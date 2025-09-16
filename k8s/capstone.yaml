@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: capstone-config
 data:
-  VITE_API_BASE_URL: "http://52.91.57.139:5050"
+  VITE_API_BASE_URL: "http://52.91.57.139:30007"
 ---
 apiVersion: apps/v1
 kind: Deployment
